@@ -1,232 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>XRP Contract Purchase</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>XRP Contract Sale</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("https://s.yimg.com/ny/api/res/1.2/Phc5HvvKu4xvPceFYLoFPw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ1MDtjZj13ZWJw/https://media.zenfs.com/en-US/the_block_83/8988da1e9af1c61405c181decc49bb91")
+    center/cover no-repeat fixed;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)),
-        url("https://s.yimg.com/ny/api/res/1.2/Phc5HvvKu4xvPceFYLoFPw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ1MDtjZj13ZWJw/https://media.zenfs.com/en-US/the_block_83/8988da1e9af1c61405c181decc49bb91")
-        center / cover no-repeat fixed;
-    }
+.box{
+  background:rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  padding:32px;
+  border-radius:18px;
+  width:100%;
+  max-width:430px;
+  text-align:center;
+  box-shadow:0 25px 50px rgba(0,0,0,.5);
+}
 
-    .header {
-      text-align: center;
-      padding: 70px 20px 30px;
-    }
+h1{
+  margin-bottom:24px;
+  letter-spacing:3px;
+  font-size:26px;
+}
 
-    .header h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: 3px;
-      color: #0d6efd;
-      margin-bottom: 12px;
-    }
+.btn{
+  width:100%;
+  padding:13px;
+  margin-top:12px;
+  background:#0d6efd;
+  border:none;
+  border-radius:12px;
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
 
-    .header p {
-      font-size: 1.1rem;
-      color: #222;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.7;
-    }
+.btn.secondary{
+  background:#198754;
+}
 
-    .container {
-      max-width: 520px;
-      margin: 40px auto;
-      background: rgba(255,255,255,0.95);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.35);
-    }
+.btn:hover{
+  transform:translateY(-1px);
+  opacity:0.95;
+}
 
-    .section-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 18px;
-      text-align: center;
-    }
+.section{
+  margin-top:22px;
+  display:none;
+}
 
-    .info-box {
-      background: #f8f9fa;
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 16px;
-      font-size: 14px;
-      color: #111;
-    }
+.info{
+  background:rgba(0,0,0,.45);
+  padding:14px;
+  border-radius:12px;
+  font-size:14px;
+  margin-bottom:12px;
+  line-height:1.6;
+  word-break: break-all;
+}
 
-    .info-box strong {
-      display: block;
-      margin-bottom: 6px;
-    }
+input{
+  width:100%;
+  padding:11px;
+  border-radius:10px;
+  border:none;
+  margin-top:10px;
+  font-size:14px;
+}
 
-    .price {
-      text-align: center;
-      font-size: 1.9rem;
-      font-weight: 800;
-      color: #198754;
-      margin: 24px 0;
-    }
+.loader{
+  width:44px;
+  height:44px;
+  border:4px solid rgba(255,255,255,.3);
+  border-top:4px solid #0d6efd;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  margin:22px auto;
+}
 
-    button {
-      width: 100%;
-      padding: 16px;
-      border-radius: 14px;
-      border: none;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-    }
+@keyframes spin{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
 
-    .primary-btn {
-      background: #0d6efd;
-      color: #fff;
-    }
-
-    .primary-btn:hover {
-      background: #084298;
-    }
-
-    .secondary-btn {
-      background: #198754;
-      color: #fff;
-      margin-top: 12px;
-    }
-
-    .secondary-btn:hover {
-      background: #146c43;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-
-    .status {
-      text-align: center;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #0d6efd;
-      margin-top: 20px;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 12px;
-      color: #444;
-      padding: 30px 10px;
-    }
-  </style>
+p{
+  font-size:14px;
+  line-height:1.6;
+}
+</style>
 </head>
 
 <body>
 
-<div class="header">
-  <h1>XRP CONTRACT</h1>
-  <p>
-    Purchase and deploy your custom XRP blockchain contract.<br>
-    Suitable for Ripple agreements, digital commitments, and on-chain contracts.
-  </p>
-</div>
+<div class="box">
+  <h1>NEW CONTRACT</h1>
 
-<div class="container">
+  <!-- Step 1 -->
+  <button class="btn" onclick="showPayment()">Create Contract</button>
 
-  <div class="section-title">
-    Contract Purchase
-  </div>
-
-  <div class="info-box">
-    <strong>Network</strong>
-    XRP Ledger (Ripple)
-  </div>
-
-  <div class="info-box">
-    <strong>Contract Type</strong>
-    Custom XRP Smart Contract
-  </div>
-
-  <div class="price">
-    40 USDT
-  </div>
-
-  <button class="primary-btn" onclick="showPayment()">
-    Buy Contract
-  </button>
-
-  <!-- PAYMENT SECTION -->
-  <div id="paymentBox" class="hidden">
-
-    <div class="info-box" style="margin-top:20px;">
-      <strong>Payment Address</strong>
-      0xef42d9b6502ae425aeb4f28099a3041392481a52<br>
-      <small>USDT – BSC (BEP20)</small>
+  <!-- Step 2 -->
+  <div class="section" id="payment">
+    <div class="info">
+      Network: <b>USDT BSC (BEP20)</b><br>
+      Address:<br>
+      <span id="walletAddress">
+        0xef42d9b6502ae425aeb4f28099a3041392481a52
+      </span><br>
+      Amount: <b>40 USDT</b>
     </div>
 
-    <div class="info-box">
-      Please transfer <strong>40 USDT</strong> to the address above.
-    </div>
-
-    <button class="secondary-btn" onclick="showEmail()">
-      I've Paid
+    <button class="btn secondary" id="copyBtn" onclick="copyAddress()">
+      Copy Address
     </button>
 
+    <button class="btn" onclick="showEmail()">I Paid</button>
   </div>
 
-  <!-- EMAIL SECTION -->
-  <div id="emailBox" class="hidden">
-
-    <div class="info-box" style="margin-top:20px;">
-      <strong>Your Email Address</strong>
-      <input type="email" placeholder="Enter your email">
-    </div>
-
-    <button class="primary-btn" onclick="showStatus()">
-      Confirm
-    </button>
-
+  <!-- Step 3 -->
+  <div class="section" id="emailBox">
+    <input type="email" placeholder="Enter your email">
+    <button class="btn" onclick="showStatus()">Confirm</button>
   </div>
 
-  <!-- STATUS -->
-  <div id="statusBox" class="hidden">
-    <div class="status">
-      Your payment is under review.<br>
-      Please wait for confirmation.
-    </div>
+  <!-- Step 4 -->
+  <div class="section" id="status">
+    <div class="loader"></div>
+    <p>
+      If the payment is completed,<br>
+      the contract will be emailed to you.
+    </p>
   </div>
-
 </div>
-
-<footer>
-  © 2026 XRP Contract Sales Platform
-</footer>
 
 <script>
-function showPayment() {
-  document.getElementById("paymentBox").classList.remove("hidden");
+function showPayment(){
+  document.getElementById("payment").style.display="block";
 }
 
-function showEmail() {
-  document.getElementById("emailBox").classList.remove("hidden");
+function showEmail(){
+  document.getElementById("emailBox").style.display="block";
 }
 
-function showStatus() {
-  document.getElementById("statusBox").classList.remove("hidden");
+function showStatus(){
+  document.getElementById("status").style.display="block";
+}
+
+function copyAddress(){
+  const address = document.getElementById("walletAddress").innerText;
+  navigator.clipboard.writeText(address);
+
+  const btn = document.getElementById("copyBtn");
+  btn.innerText = "Address Copied ✔";
+  setTimeout(() => {
+    btn.innerText = "Copy Address";
+  }, 2000);
 }
 </script>
 
