@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>XRP Contract Sale</title>
+<title>XRP Smart Contract Sale</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -10,31 +10,43 @@ body{
   margin:0;
   font-family:Arial, sans-serif;
   background:
-    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-    url("https://s.yimg.com/ny/api/res/1.2/Phc5HvvKu4xvPceFYLoFPw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ1MDtjZj13ZWJw/https://media.zenfs.com/en-US/the_block_83/8988da1e9af1c61405c181decc49bb91")
-    center/cover no-repeat fixed;
+    linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+    url("https://s.yimg.com/ny/api/res/1.2/Phc5HvvKu4xvPceFYLoFPw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ1MDtjZj13ZWJw/https://media.zenfs.com/en-US/the_block_83/8988da1e9af1c61405c181decc49bb91");
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:110%;
   color:#fff;
+}
+
+.page{
+  min-height:100vh;
+  padding:80px 16px 140px;
   display:flex;
   justify-content:center;
-  align-items:center;
-  min-height:100vh;
 }
 
 .box{
   background:rgba(255,255,255,0.15);
-  backdrop-filter: blur(6px);
+  backdrop-filter:blur(6px);
   padding:32px;
   border-radius:18px;
   width:100%;
-  max-width:430px;
+  max-width:460px;
   text-align:center;
   box-shadow:0 25px 50px rgba(0,0,0,.5);
 }
 
 h1{
-  margin-bottom:24px;
+  margin-bottom:14px;
   letter-spacing:3px;
   font-size:26px;
+}
+
+.subtitle{
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:22px;
+  opacity:0.95;
 }
 
 .btn{
@@ -72,7 +84,7 @@ h1{
   font-size:14px;
   margin-bottom:12px;
   line-height:1.6;
-  word-break: break-all;
+  word-break:break-all;
 }
 
 input{
@@ -108,43 +120,58 @@ p{
 
 <body>
 
-<div class="box">
-  <h1>NEW CONTRACT</h1>
+<div class="page">
+  <div class="box">
 
-  <!-- Step 1 -->
-  <button class="btn" onclick="showPayment()">Create Contract</button>
+    <h1>NEW CONTRACT</h1>
 
-  <!-- Step 2 -->
-  <div class="section" id="payment">
-    <div class="info">
-      Network: <b>USDT BSC (BEP20)</b><br>
-      Address:<br>
-      <span id="walletAddress">
-        0xef42d9b6502ae425aeb4f28099a3041392481a52
-      </span><br>
-      Amount: <b>40 USDT</b>
+    <div class="subtitle">
+      This platform provides the sale and creation of <b>XRP smart contracts</b>.<br>
+      You can create new contracts on the <b>XRP Ledger (Ripple Blockchain)</b>,
+      sign digital agreements, and deploy your XRP contract securely.
     </div>
 
-    <button class="btn secondary" id="copyBtn" onclick="copyAddress()">
-      Copy Address
-    </button>
+    <div class="subtitle">
+      By purchasing an XRP contract, you will receive your finalized contract
+      directly via email after payment verification.
+    </div>
 
-    <button class="btn" onclick="showEmail()">I Paid</button>
-  </div>
+    <!-- Step 1 -->
+    <button class="btn" onclick="showPayment()">Create XRP Contract</button>
 
-  <!-- Step 3 -->
-  <div class="section" id="emailBox">
-    <input type="email" placeholder="Enter your email">
-    <button class="btn" onclick="showStatus()">Confirm</button>
-  </div>
+    <!-- Step 2 -->
+    <div class="section" id="payment">
+      <div class="info">
+        Payment Network: <b>USDT BSC (BEP20)</b><br><br>
+        Wallet Address:<br>
+        <span id="walletAddress">
+          0xef42d9b6502ae425aeb4f28099a3041392481a52
+        </span><br><br>
+        Contract Price: <b>40 USDT</b>
+      </div>
 
-  <!-- Step 4 -->
-  <div class="section" id="status">
-    <div class="loader"></div>
-    <p>
-      If the payment is completed,<br>
-      the contract will be emailed to you.
-    </p>
+      <button class="btn secondary" id="copyBtn" onclick="copyAddress()">
+        Copy Address
+      </button>
+
+      <button class="btn" onclick="showEmail()">I Paid</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="section" id="emailBox">
+      <input type="email" placeholder="Enter your email address">
+      <button class="btn" onclick="showStatus()">Confirm</button>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="section" id="status">
+      <div class="loader"></div>
+      <p>
+        If the payment is completed successfully,<br>
+        your XRP contract will be reviewed and sent to your email.
+      </p>
+    </div>
+
   </div>
 </div>
 
