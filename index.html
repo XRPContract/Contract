@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XRP Contract Purchase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)),
+        url("https://s.yimg.com/ny/api/res/1.2/Phc5HvvKu4xvPceFYLoFPw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ1MDtjZj13ZWJw/https://media.zenfs.com/en-US/the_block_83/8988da1e9af1c61405c181decc49bb91")
+        center / cover no-repeat fixed;
+    }
+
+    .header {
+      text-align: center;
+      padding: 70px 20px 30px;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #0d6efd;
+      margin-bottom: 12px;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      color: #222;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 40px auto;
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .info-box {
+      background: #f8f9fa;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #111;
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .price {
+      text-align: center;
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: #198754;
+      margin: 24px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .primary-btn {
+      background: #0d6efd;
+      color: #fff;
+    }
+
+    .primary-btn:hover {
+      background: #084298;
+    }
+
+    .secondary-btn {
+      background: #198754;
+      color: #fff;
+      margin-top: 12px;
+    }
+
+    .secondary-btn:hover {
+      background: #146c43;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .status {
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0d6efd;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #444;
+      padding: 30px 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>XRP CONTRACT</h1>
+  <p>
+    Purchase and deploy your custom XRP blockchain contract.<br>
+    Suitable for Ripple agreements, digital commitments, and on-chain contracts.
+  </p>
+</div>
+
+<div class="container">
+
+  <div class="section-title">
+    Contract Purchase
+  </div>
+
+  <div class="info-box">
+    <strong>Network</strong>
+    XRP Ledger (Ripple)
+  </div>
+
+  <div class="info-box">
+    <strong>Contract Type</strong>
+    Custom XRP Smart Contract
+  </div>
+
+  <div class="price">
+    40 USDT
+  </div>
+
+  <button class="primary-btn" onclick="showPayment()">
+    Buy Contract
+  </button>
+
+  <!-- PAYMENT SECTION -->
+  <div id="paymentBox" class="hidden">
+
+    <div class="info-box" style="margin-top:20px;">
+      <strong>Payment Address</strong>
+      0xef42d9b6502ae425aeb4f28099a3041392481a52<br>
+      <small>USDT – BSC (BEP20)</small>
+    </div>
+
+    <div class="info-box">
+      Please transfer <strong>40 USDT</strong> to the address above.
+    </div>
+
+    <button class="secondary-btn" onclick="showEmail()">
+      I've Paid
+    </button>
+
+  </div>
+
+  <!-- EMAIL SECTION -->
+  <div id="emailBox" class="hidden">
+
+    <div class="info-box" style="margin-top:20px;">
+      <strong>Your Email Address</strong>
+      <input type="email" placeholder="Enter your email">
+    </div>
+
+    <button class="primary-btn" onclick="showStatus()">
+      Confirm
+    </button>
+
+  </div>
+
+  <!-- STATUS -->
+  <div id="statusBox" class="hidden">
+    <div class="status">
+      Your payment is under review.<br>
+      Please wait for confirmation.
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 XRP Contract Sales Platform
+</footer>
+
+<script>
+function showPayment() {
+  document.getElementById("paymentBox").classList.remove("hidden");
+}
+
+function showEmail() {
+  document.getElementById("emailBox").classList.remove("hidden");
+}
+
+function showStatus() {
+  document.getElementById("statusBox").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
