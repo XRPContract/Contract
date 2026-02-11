@@ -16,7 +16,7 @@ body{
   font-family:'Segoe UI', Arial, sans-serif;
   background:
     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
-    url("https://pulse-t.github.io/aipls/ai.jpg");
+    url("https://pulse-t.github.io/aipls1/ai1.jpg");
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
@@ -31,7 +31,11 @@ body{
 .content{
   max-width:950px;
   width:100%;
-  animation:fadeIn 1.2s ease forwards;
+  padding:30px 50px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.1); /* لایه شیشه‌ای شفاف */
+  backdrop-filter:blur(15px);
+  animation:fadeIn 2s ease forwards;
 }
 
 h1{
@@ -62,14 +66,14 @@ p{
   text-shadow:0 0 15px rgba(0,0,0,0.6);
   opacity:0;
   transform:translateY(30px);
-  animation:slideUp 1s ease forwards;
+  animation:slideUp 1.5s ease forwards;
 }
 
-p:nth-of-type(1){ animation-delay:0.3s; }
-p:nth-of-type(2){ animation-delay:0.6s; }
-p:nth-of-type(3){ animation-delay:0.9s; }
-p:nth-of-type(4){ animation-delay:1.2s; }
-p:nth-of-type(5){ animation-delay:1.5s; }
+p:nth-of-type(1){ animation-delay:0.6s; }
+p:nth-of-type(2){ animation-delay:1.2s; }
+p:nth-of-type(3){ animation-delay:1.8s; }
+p:nth-of-type(4){ animation-delay:2.4s; }
+p:nth-of-type(5){ animation-delay:3s; }
 
 .highlight{
   color:#ff7a00;
@@ -93,7 +97,6 @@ p:nth-of-type(5){ animation-delay:1.5s; }
   cursor:pointer;
   transition:0.3s;
   letter-spacing:1px;
-  backdrop-filter:none;
 }
 
 .btn:hover{
