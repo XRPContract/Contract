@@ -15,7 +15,7 @@
 body{
   font-family:'Segoe UI', Arial, sans-serif;
   background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
     url("https://www.networkworld.com/wp-content/uploads/2025/05/3609889-0-37197200-1748236726-AI-networking-2-1.jpg?resize=1536%2C1063&quality=50&strip=all");
   background-size:cover;
   background-position:center;
@@ -25,25 +25,22 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:60px 20px;
+  padding:80px 25px;
 }
 
-.container{
+.content{
   max-width:950px;
   width:100%;
-  padding:70px 50px;
-  border-radius:10px;
-  background:rgba(0,0,0,0.35);
-  border:1px solid rgba(255,255,255,0.06);
   animation:fadeIn 1.2s ease forwards;
 }
 
 h1{
-  font-size:52px;
+  font-size:56px;
   font-weight:900;
   letter-spacing:6px;
   margin-bottom:25px;
   text-transform:uppercase;
+  text-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
 h1 span{
@@ -52,17 +49,19 @@ h1 span{
 
 h2{
   color:#ff9c33;
-  margin-bottom:45px;
+  margin-bottom:50px;
   font-weight:600;
   letter-spacing:2px;
+  text-shadow:0 0 15px rgba(0,0,0,0.6);
 }
 
 p{
-  font-size:18px;
-  line-height:2;
-  margin-bottom:35px;   /* فاصله بیشتر */
+  font-size:19px;
+  line-height:2.1;
+  margin-bottom:45px;
+  text-shadow:0 0 15px rgba(0,0,0,0.6);
   opacity:0;
-  transform:translateY(25px);
+  transform:translateY(30px);
   animation:slideUp 1s ease forwards;
 }
 
@@ -78,15 +77,15 @@ p:nth-of-type(5){ animation-delay:1.5s; }
 }
 
 .buttons{
-  margin-top:50px;
+  margin-top:60px;
   display:flex;
-  gap:25px;
+  gap:30px;
   flex-wrap:wrap;
 }
 
 .btn{
-  padding:15px 32px;
-  border-radius:40px;
+  padding:16px 36px;
+  border-radius:50px;
   border:2px solid #ff7a00;
   background:transparent;
   color:#ff7a00;
@@ -94,12 +93,13 @@ p:nth-of-type(5){ animation-delay:1.5s; }
   cursor:pointer;
   transition:0.3s;
   letter-spacing:1px;
+  backdrop-filter:none;
 }
 
 .btn:hover{
   background:#ff7a00;
   color:#000;
-  box-shadow:0 0 30px rgba(255,122,0,0.6);
+  box-shadow:0 0 35px rgba(255,122,0,0.7);
   transform:translateY(-4px);
 }
 
@@ -110,6 +110,7 @@ p:nth-of-type(5){ animation-delay:1.5s; }
   opacity:0;
   transition:0.4s;
   color:#ffb366;
+  text-shadow:0 0 10px rgba(0,0,0,0.7);
 }
 
 .contract-box.show{
@@ -126,52 +127,51 @@ p:nth-of-type(5){ animation-delay:1.5s; }
 }
 
 @media(max-width:768px){
-  h1{font-size:34px;}
-  .container{padding:40px 25px;}
+  h1{font-size:38px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="content">
 
   <h1><span>PULSE</span> (PLS)</h1>
   <h2>The Signal Layer That Could Reshape Artificial Intelligence</h2>
 
   <p>
-    Artificial Intelligence is entering a new phase — one where speed is no longer enough.
-    The future demands synchronization, adaptability, and intelligent scaling.
-    <span class="highlight">PULSE (PLS)</span> emerges as a concept designed to power that transition.
+    Artificial Intelligence is evolving beyond prediction models and automation.
+    <span class="highlight">PULSE (PLS)</span> represents a conceptual breakthrough —
+    a dynamic signal layer engineered to synchronize AI systems across decentralized networks.
   </p>
 
   <p>
-    Instead of relying solely on static neural architectures,
-    PLS introduces a dynamic signal-based layer that connects AI systems
-    through real-time data harmonization.
-    Every interaction strengthens the network.
-    Every signal refines its intelligence.
+    Instead of static architectures,
+    PLS introduces adaptive signal intelligence,
+    enabling neural environments to self-optimize in real time.
+    Every signal strengthens the system.
+    Every interaction refines its learning capacity.
   </p>
 
   <p>
-    Imagine decentralized AI clusters communicating instantly,
-    self-optimizing without human recalibration.
-    PLS envisions an ecosystem where machine cognition evolves continuously,
-    responding to global data streams as a living structure.
+    Imagine AI infrastructures communicating instantly across global data streams,
+    evolving without manual recalibration.
+    PULSE envisions scalable intelligence ecosystems
+    designed to expand with exponential efficiency.
   </p>
 
   <p>
-    As industries shift toward automation, robotics, predictive analytics,
-    and autonomous infrastructures,
-    scalability becomes the defining challenge.
-    PULSE proposes a scalable backbone — lightweight yet powerful —
-    capable of supporting next-generation intelligence frameworks.
+    As robotics, automation, and autonomous systems dominate industries,
+    scalability becomes the core challenge.
+    PLS aims to act as the backbone —
+    lightweight, adaptive, and future-ready.
   </p>
 
   <p>
-    The pulse of tomorrow’s intelligence will not simply compute —
-    it will adapt, synchronize, and evolve.
-    PLS represents the heartbeat of that transformation.
+    The next generation of intelligence will not simply compute.
+    It will synchronize.
+    It will adapt.
+    It will pulse.
   </p>
 
   <div class="buttons">
